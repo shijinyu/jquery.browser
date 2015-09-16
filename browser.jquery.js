@@ -1,8 +1,10 @@
 /*
 * author :shi
 */
-
-$.extend({
+(function(window,$,undefined){
+        
+    if(!$.browser){
+      $.extend({
         browser:function(){
             var ua=window.navigator.userAgent,
             ret="";
@@ -26,7 +28,8 @@ $.extend({
             }
          return ret.split("|");
         }
-    });
+      });
+    }
     $.extend($.browser,{
         ie6:function(){
             if(typeof document.body.style.maxHeight === 'undefined'){
@@ -79,3 +82,4 @@ $.extend({
             return parseInt(v);
         }
     });
+})(window,jQuery)
