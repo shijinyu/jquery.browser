@@ -32,10 +32,10 @@
     }
     $.extend($.browser,{
         ie6:function(){
-            if(typeof document.body.style.maxHeight === 'undefined'){
-                return true;
-            }
-            return false;
+            return !('maxHeight' in document.documentElement.style);
+        },
+        lteIe8:function(){
+            return '\v'=='v';
         },
         msie:function(){
             return $.browser()[0] =='IE';
